@@ -5,7 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 
 # Load and prepare the dataset
-df = pd.read_csv("/datasets/email_classification.csv")
+df = pd.read_csv("datasets/email_classification.csv")
 df.columns = ['message', 'label']
 df['label'] = df['label'].map({'ham': 0, 'spam': 1})
 
