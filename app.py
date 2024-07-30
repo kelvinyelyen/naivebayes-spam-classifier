@@ -27,11 +27,11 @@ model.fit(X_train_transformed, y_train)
 def predict_spam_or_ham(text):
     text_transformed = vectorizer.transform([text])
     prediction = model.predict(text_transformed)
-    return 'spam' if prediction[0] == 1 else 'ham'
+    return 'Spam' if prediction[0] == 1 else 'Not Spam (ham)'
 
 # Streamlit app
 st.title('Spam Detection')
-st.write("Enter a message below to classify it as spam or ham:")
+st.write("Enter a message below to classify it as spam or not spam (ham):")
 
 # Text input for prediction
 user_input = st.text_area("Message")
