@@ -4,14 +4,18 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 
-# Load and prepare the dataset
-df = pd.read_csv("datasets/email_classification.csv")
-df.columns = ['message', 'label']
+# Load the dataset
+url = "https://raw.githubusercontent.com/justmarkham/pycon-2016-tutorial/master/data/sms.tsv"
+df = pd.read_csv(url, sep='\t', header=None, names=['label', 'message'])
+
+# Convert labels to binary (0 for ham, 1 for spam)
 df['label'] = df['label'].map({'ham': 0, 'spam': 1})
 
-# Split the data
+# Split the data into features (X) and target (y)
 X = df['message']
 y = df['label']
+
+# Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Initialize and fit the vectorizer
