@@ -1,4 +1,4 @@
-# Naive Bayes-Spam-classification
+# NaiveBayes-Spam-Classification
 ### Implementation Details
 
 1. **Data Loading and Preprocessing**:
